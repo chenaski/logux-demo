@@ -1,12 +1,13 @@
 {
   "name": "logux-demo-server",
+  "type": "module",
   "private": true,
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@logux/server": "^0.10.2",
+    "knex": "^0.95.11",
+    "sqlite3": "^5.0.2"
+  }
 }
