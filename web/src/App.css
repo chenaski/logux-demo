@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+form {
+  width: 600px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  display: block;
+  margin-top: 5px;
+}

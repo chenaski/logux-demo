@@ -16,14 +16,9 @@ const server = new Server(
 
 server.auth(({ userId, token }) => {
   // Allow only local users until we will have a proper authentication
-  return process.env.NODE_ENV === "development";
+  return process.env.NODE_ENV !== "production";
 });
 
 server.listen();
 
 const db = knex(knexConfig);
-
-(async () => {
-  const data = await db("users").select("id").select("name");
-  console.log(data);
-})();
