@@ -1,3 +1,5 @@
+import bcrypt from "bcrypt";
+
 const createUser = ({ id, name, password }) => {
   return {
     id,
@@ -14,11 +16,26 @@ export const seed = (knex) => {
     .then(() => {
       return knex(tableName).insert(
         [
-          { name: "John", password: "GIMxuvqyqb" },
-          { name: "Robert", password: "mvuvhkL8dg" },
-          { name: "Linda", password: "tGeQyyRwi9" },
-          { name: "Paul", password: "ye7vU4jdWV" },
-          { name: "Jane", password: "AJ1ZZuYAkY" },
+          {
+            name: "John",
+            password: bcrypt.hashSync("GIMxuvqyqb", bcrypt.genSaltSync()),
+          },
+          {
+            name: "Robert",
+            password: bcrypt.hashSync("mvuvhkL8dg", bcrypt.genSaltSync()),
+          },
+          {
+            name: "Linda",
+            password: bcrypt.hashSync("tGeQyyRwi9", bcrypt.genSaltSync()),
+          },
+          {
+            name: "Paul",
+            password: bcrypt.hashSync("ye7vU4jdWV", bcrypt.genSaltSync()),
+          },
+          {
+            name: "Jane",
+            password: bcrypt.hashSync("AJ1ZZuYAkY", bcrypt.genSaltSync()),
+          },
         ].map(({ name, password }, i) => createUser({ id: i, name, password }))
       );
     });
